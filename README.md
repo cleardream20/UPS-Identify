@@ -43,18 +43,18 @@ pip install 'numpy<2.0'
 
 数据集：此处提供我们使用的数据集UpsDataset，来着南京6个区的100张遥感影像和对应的Labelme标注生成的.json和.png掩码图像
 
-将Ups_Semantic_Seg_Mask中的图像按照初始顺序移动到./mmsegmentation/Ups_Semantic_Seg_Mask中（例如Ups_Semantic_Seg_Mask/img/train中的图像都移动到./mmsegmentation/Ups_Semantic_Seg_Mask/img/train中）
+将Ups_Semantic_Seg_Mask中的图像按照初始顺序移动到`./mmsegmentation/Ups_Semantic_Seg_Mask`中（例如Ups_Semantic_Seg_Mask/img/train中的图像都移动到`./mmsegmentation/Ups_Semantic_Seg_Mask/img/train`中）
 
 ### Prepare
 针对自定义数据集（这里以UpsDataset为例），需要做一些准备工作
 
-1. 将pre_provided文件夹中的UpsDataset.py移入./mmsegmentation/mmseg/datasets中
+1. 将`pre_provided`文件夹中的`UpsDataset.py`移入`./mmsegmentation/mmseg/datasets`中
 （如果已经熟悉相关操作可以直接新建xxx.py并配置你自己的自定义数据集文件）
-2. 在__init__.py中注册数据集
-修改./mmsegmentation/mmseg/datasets下的__init__.py文件，在最后的import xxx下面加上一行`from UpsDataset import UpsDataset`，在__all__ = [...] 最后加上一个`UpsDataset`
-3. 将pre_provided文件夹中的SquareDataset_pipeline.py移入./mmsegmentation/configs/_base_/datasets中
-4. 生成自定义模型配置文件UpsDataset_KNet.py
-运行KNetConfigGenerator.py文件（**注意修改相应文件路径等参数**），生成UpsDataset_KNet.py模型配置文件
+2. 在`__init__.py`中注册数据集
+修改`./mmsegmentation/mmseg/datasets`下的`__init__.py`文件，在最后的`import xxx`下面加上一行`from UpsDataset import UpsDataset`，在`__all__ = [...]` 最后加上一个`UpsDataset`
+3. 将`pre_provided`文件夹中的`SquareDataset_pipeline.py`移入`./mmsegmentation/configs/_base_/datasets`中
+4. 生成自定义模型配置文件`UpsDataset_KNet.py`
+运行`KNetConfigGenerator.py`文件（**注意修改相应文件路径等参数**），生成`UpsDataset_KNet.py`模型配置文件
 ```sh
 python KNetConfigGenerator.py
 ```
@@ -68,7 +68,7 @@ bash train.sh
 
 每隔500个epoch会输出训练过程中的一些参数值，以提供参考
 
-模型权重文件(.pth)结果会被保存在./mmsegmentation/work_dirs/UpsDataset-KNet中
+模型权重文件(.pth)结果会被保存在`./mmsegmentation/work_dirs/UpsDataset-KNet`中
 
 ### Predict
 使用训练好的模型进行图像预测，运行predict.py（**注意修改相应文件路径等参数**）
@@ -76,7 +76,7 @@ bash train.sh
 python predict.py
 ```
 
-图像预测结果保存在./mmsegmentation/outputs中
+图像预测结果保存在`./mmsegmentation/outputs`中
 
 ### PostProcess
 后处理全流程，运行postProcessing.py文件，根据输入的tif文件，输出相应类别预测结果的tif和shp文件
@@ -87,7 +87,7 @@ python predict.py
 python postProcessing.py
 ```
 
-最终输出结果保存在./mmsegmentation/output_shp中
+最终输出结果保存在`./mmsegmentation/output_shp`中
 
 
 
