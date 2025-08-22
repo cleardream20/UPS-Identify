@@ -52,7 +52,7 @@ pip install 'numpy<2.0'
 （如果已经熟悉相关操作可以直接新建xxx.py并配置你自己的自定义数据集文件）
 2. 在`__init__.py`中注册数据集
 修改`./mmsegmentation/mmseg/datasets`下的`__init__.py`文件，在最后的`import xxx`下面加上一行`from UpsDataset import UpsDataset`，在`__all__ = [...]` 最后加上一个`UpsDataset`
-3. 将`pre_provided`文件夹中的`SquareDataset_pipeline.py`移入`./mmsegmentation/configs/_base_/datasets`中
+3. 将`pre_provided`文件夹中的`UpsDataset_pipeline.py`移入`./mmsegmentation/configs/_base_/datasets`中
 4. 生成自定义模型配置文件`UpsDataset_KNet.py`
 运行`KNetConfigGenerator.py`文件（**注意修改相应文件路径等参数**），生成`UpsDataset_KNet.py`模型配置文件
 ```sh
