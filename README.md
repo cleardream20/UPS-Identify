@@ -29,7 +29,9 @@ bash setup.sh
 ```
 
 安装gdal（直接pip install会出问题，所以建议下载.whl文件来安装）
+
 例如，linux系统应该下载GDAL-3.4.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl文件（适配python=3.9）
+
 假设下载完成后的.whl文件路径为/path/to/gdal
 ```sh
 python3 -m pip install /path/to/gdal
