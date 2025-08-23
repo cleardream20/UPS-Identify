@@ -6,7 +6,7 @@ The python package for semantic segmentation and recognition of urban public spa
 
 ## git clone
 ```sh
-git clone https://github.com/cleardream20/UPS-Identify
+git clone https://github.com/cleardream20/UPS-Identify.git
 cd UPS-Identify
 ```
 
