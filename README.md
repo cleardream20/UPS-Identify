@@ -45,7 +45,7 @@ pip install 'numpy<2.0'
 
 数据集：此处提供我们使用的数据集UpsDataset，来着南京6个区的100张遥感影像和对应的Labelme标注生成的.json和.png掩码图像
 
-将Ups_Semantic_Seg_Mask中的图像按照初始顺序移动到`./mmsegmentation/Ups_Semantic_Seg_Mask`中（例如Ups_Semantic_Seg_Mask/img/train中的图像都移动到`./mmsegmentation/Ups_Semantic_Seg_Mask/img/train`中）
+将`Ups_Semantic_Seg_Mask`中的图像按照初始顺序移动到`./mmsegmentation/Ups_Semantic_Seg_Mask`中（例如`Ups_Semantic_Seg_Mask/img_dir/train`中的图像都移动到`./mmsegmentation/Ups_Semantic_Seg_Mask/img_dir/train`中）
 
 ### Prepare
 针对自定义数据集（这里以UpsDataset为例），需要做一些准备工作
