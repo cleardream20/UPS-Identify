@@ -63,9 +63,11 @@ device = 'cuda:0' # 使用GPU进行预测
 
 model = init_model(config_file, checkpoint_file, device=device)
 
+# 图像文件名及路径（相对于mmsegmentation文件夹）
 img = 's50'
 img_path = f'Ups_Semantic_Seg_Mask/img_dir/train/{img}.jpg'
 
+# 输出文件路径（相对于mmsegmentation文件夹）
 out_path = f'./outputs/{img}_pred.jpg'
 
 mmseg_predict(img_path, out_path, model)

@@ -214,7 +214,6 @@ def mmseg_predict(input_patch_path, output_patch_path, model):
     Image.fromarray(output).save(output_patch_path)
 
 
-# === 改进版小区域过滤 ===
 def filter_small_areas(binary, min_area=8420, min_hole_area=10000, kernel_size=5, debug=True):
     """
     改进版小区域过滤，可以控制空洞填充的面积阈值

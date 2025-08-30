@@ -14,6 +14,9 @@ cd UPS-Identify
 
 ### Setup
 构建conda虚拟环境（python=3.9，版本号过高会出现问题）
+
+（每次重新启动云服务器都需要重新Setup一遍，因为会"刷机"）
+
 ```sh
 conda create -n ups python=3.9
 ```
