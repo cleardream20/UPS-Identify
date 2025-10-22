@@ -52,6 +52,8 @@ pip install 'numpy<2.0'
 
 将`Ups_Semantic_Seg_Mask`中的图像按照初始顺序移动到`./mmsegmentation/Ups_Semantic_Seg_Mask`中（例如`Ups_Semantic_Seg_Mask/img_dir/train`中的图像都移动到`./mmsegmentation/Ups_Semantic_Seg_Mask/img_dir/train`中）
 
+或者就直接把整个文件夹移入到`mmsegmentation`文件夹中
+
 ### Prepare
 针对自定义数据集（这里以UpsDataset为例），需要做一些准备工作
 
@@ -96,5 +98,6 @@ python postProcessing.py
 
 最终输出结果保存在`./mmsegmentation/output_shp`中
 
+下载4个和shp相关的文件，和`merge.tif`就OK
 
 
