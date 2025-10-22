@@ -4,10 +4,12 @@ The python package for semantic segmentation and recognition of urban public spa
 ## platform
 本实验运行在云GPU平台[Featurize](https://featurize.cn)上运行，使用显卡4090(3090应该也可以)
 
+点进work文件夹，点左上角的加号新建一个terminal
+
 ## git clone
 ```sh
 git clone https://github.com/cleardream20/UPS-Identify.git
-cd UPS-Identify
+cd UPS-Identify # 如果不在work文件夹下先 cd work
 ```
 
 ## Steps
@@ -35,7 +37,7 @@ bash setup.sh
 
 例如，linux系统应该下载GDAL-3.4.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl文件（适配python=3.9）
 
-假设下载完成后的.whl文件路径为/path/to/gdal
+假设下载完成后的.whl文件路径为/path/to/gdal（找到后右键copy path复制绝对路径）
 ```sh
 python3 -m pip install /path/to/gdal
 ```
@@ -53,7 +55,7 @@ pip install 'numpy<2.0'
 ### Prepare
 针对自定义数据集（这里以UpsDataset为例），需要做一些准备工作
 
-1. 将`pre_provided`文件夹中的`UpsDataset.py`移入`./mmsegmentation/mmseg/datasets`中
+1. 将`pre_provided`文件夹中的`UpsDataset.py`移入`./mmsegmentation/mmseg/datasets`中（复制粘贴也OK）
 （如果已经熟悉相关操作可以直接新建xxx.py并配置你自己的自定义数据集文件）
 2. 在`__init__.py`中注册数据集
 修改`./mmsegmentation/mmseg/datasets`下的`__init__.py`文件，在最后的`import xxx`下面加上一行`from UpsDataset import UpsDataset`，在`__all__ = [...]` 最后加上一个`UpsDataset`
@@ -86,7 +88,7 @@ python predict.py
 ### PostProcess
 后处理全流程，运行postProcessing.py文件，根据输入的tif文件，输出相应类别预测结果的tif和shp文件
 
-**注意，该文件中自定义参数较多，请根据实际情况修改**
+**注意，该文件中自定义路径参数较多，请根据实际情况修改**
 
 ```sh
 python postProcessing.py
