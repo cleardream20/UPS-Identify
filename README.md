@@ -37,7 +37,7 @@ bash setup.sh
 
 例如，linux系统应该下载GDAL-3.4.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl文件（适配python=3.9）
 
-假设下载完成后的.whl文件路径为/path/to/gdal（找到后右键copy path复制绝对路径）
+假设下载完成后的.whl文件路径为/path/to/gdal（在pre_provided已提供）（找到后右键copy path复制绝对路径）
 ```sh
 python3 -m pip install /path/to/gdal
 ```
