@@ -21,7 +21,7 @@ class UpsDataset(BaseSegDataset):
             'parking', 
             'housing', 
             'workland',  
-            'field', 
+            'block', 
         ],
         'palette': [
             [127, 127, 127],  # background
@@ -37,7 +37,7 @@ class UpsDataset(BaseSegDataset):
             [0, 0, 127],      # parking
             [127, 127, 0],    # housing
             [127, 0, 127],    # workland
-            [0, 127, 127],    # field
+            [0, 127, 127],    # block
         ]
     }
     # 指定图像扩展名、标注扩展名
