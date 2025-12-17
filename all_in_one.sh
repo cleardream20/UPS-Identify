@@ -79,12 +79,12 @@ mkdir_if_not_exist() {
 mkdir_if_not_exist "checkpoint"
 mkdir_if_not_exist "outputs"
 mkdir_if_not_exist "MyConfigs"
-mkdir_if_not_exist "Ups_Semantic_Seg_Mask"
+# mkdir_if_not_exist "Ups_Semantic_Seg_Mask"
 
-for split in train val; do
-    mkdir_if_not_exist "Ups_Semantic_Seg_Mask/img_dir/$split"
-    mkdir_if_not_exist "Ups_Semantic_Seg_Mask/ann_dir/$split"
-done
+# for split in train val; do
+#     mkdir_if_not_exist "Ups_Semantic_Seg_Mask/img_dir/$split"
+#     mkdir_if_not_exist "Ups_Semantic_Seg_Mask/ann_dir/$split"
+# done
 
 # 安装gdal
 cd ..
