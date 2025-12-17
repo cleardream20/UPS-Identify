@@ -22,7 +22,10 @@ bash all_in_one.sh
 ### Train / Predict / PostProcessing
 ```sh
 bash run.sh
+```
 
+会出现类似下面的"菜单"
+```sh
 (ups) ➜ UPS-Identify bash run.sh       
 =================================
       请选择要执行的操作
