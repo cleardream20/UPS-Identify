@@ -79,6 +79,7 @@ mkdir_if_not_exist() {
 mkdir_if_not_exist "checkpoint"
 mkdir_if_not_exist "outputs"
 mkdir_if_not_exist "MyConfigs"
+mkdir_if_not_exist "input_tif"
 # mkdir_if_not_exist "Ups_Semantic_Seg_Mask"
 
 # for split in train val; do
