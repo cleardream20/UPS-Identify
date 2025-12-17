@@ -40,6 +40,6 @@ bash run.sh
 
 最终输出结果保存在`./mmsegmentation/output_shp`中
 
-下载4个和shp相关的文件，和`merge.tif`就OK
+下载4个和shp相关的文件，和`merge.tif`就OK（右键文件，点击download）
 
 
