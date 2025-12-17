@@ -3,18 +3,18 @@
 set -e  # 任何命令失败时立即退出
 
 echo "=== 启动conda ==="
-# 检查环境是否已存在
-if conda env list | grep -q "^ups "; then
-    echo "环境 'ups' 已存在，跳过创建"
-else
-    echo "正在创建 conda 环境 'ups'..."
-    conda create -n ups python=3.9 -y
-fi
+# # 检查环境是否已存在
+# if conda env list | grep -q "^ups "; then
+#     echo "环境 'ups' 已存在，跳过创建"
+# else
+#     echo "正在创建 conda 环境 'ups'..."
+#     conda create -n ups python=3.9 -y
+# fi
 
-eval "$(conda shell.bash hook)"
-conda activate ups
+# eval "$(conda shell.bash hook)"
+# conda activate ups
 
-
+source create_conda.sh
 
 echo "=== 检查环境 ==="
 
