@@ -116,6 +116,9 @@ bash run.sh
 
 ---
 再运行`run.sh`，选择输入**postp**
+<img src="./imgs/ups/postp.png" />
+
+等待后处理运行完毕
 
 
 最终输出结果保存在`./mmsegmentation/output_shp`中
