@@ -15,33 +15,33 @@ Download app
 ## Steps
 1.文件-自动保存打开，同时保存图像数据关闭（每次开始前需手动设置）
 
-<img src="./imgs/Labelme/LabelmeStep1.png" />
+<img src="../imgs/Labelme/LabelmeStep1.png" />
 
 2.打开目录-选择图像/数据集所在文件夹
 
-<img src="./imgs/Labelme/LabelmeStep2.png" />
+<img src="../imgs/Labelme/LabelmeStep2.png" />
 
 3.创建多边形
 
-<img src="./imgs/Labelme/LabelmeStep3.png" />
+<img src="../imgs/Labelme/LabelmeStep3.png" />
 
 4.描点围成图形（多边形）
 
-<img src="./imgs/Labelme/LabelmeStep4.png" />
+<img src="../imgs/Labelme/LabelmeStep4.png" />
 
 5.打标签
 
-<img src="./imgs/Labelme/LabelmeStep5.png" />
+<img src="../imgs/Labelme/LabelmeStep5.png" />
 
 6.编辑多边形
 
 点击"编辑多边形"，选中想要修改的多边形区域进行修改
 
-<img src="./imgs/Labelme/LabelmeStep6.png" />
+<img src="../imgs/Labelme/LabelmeStep6.png" />
 
 7.（如果未自动保存），保存结果（.json格式文件），结果和图像存储在同一文件夹下
 
-<img src="./imgs/Labelme/LabelmeStep7.png" />
+<img src="../imgs/Labelme/LabelmeStep7.png" />
 
 8.原图像 + 标注结果.json -> 掩膜图像
 
