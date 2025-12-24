@@ -119,9 +119,12 @@ bash run.sh
 <img src="./imgs/ups/postp.png" />
 
 等待后处理运行完毕
-
+<img src="./imgs/ups/postp2.png" />
 
 最终输出结果保存在`./mmsegmentation/output_shp`中
+<img src="./imgs/ups/postp_res1.png" />
+
+<img src="./imgs/ups/postp_res2.png" />
 
 下载4个和shp相关的文件，和`merge.tif`就OK（右键文件，点击download）
 
