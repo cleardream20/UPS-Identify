@@ -4,7 +4,7 @@
 # 使用流程
 ## 进入主页
 
-<img src="./imgs/Featurize/main.png" />
+<img src="cleardream20/UPS-Identify/imgs/Featurize/main.png" />
 
 点击**开始使用**按钮
 
