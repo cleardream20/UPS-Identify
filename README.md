@@ -129,3 +129,21 @@ bash run.sh
 下载4个和shp相关的文件，和`merge.tif`就OK（右键文件，点击download）
 
 
+### Pred
+进行单张图片的预测
+
+相关参数/路径在文件`predict.py`中
+<img src="./imgs/ups/pred_file.png" />
+
+相关路径含义为
+| 路径 | 含义 |
+|--|--|
+| checkpoint_file | 模型参数文件路径 |
+| img | 待预测图像名 |
+| img_path | 待预测图像路径 |
+
+运行`run.sh`，输入**pred**
+<img src="./imgs/ups/pred.png" />
+
+图像预测结果保存在`./mmsegmentation/outputs`文件夹中
+<img src="./imgs/ups/pred_res.png" />
