@@ -4,7 +4,13 @@ The python package for semantic segmentation and recognition of urban public spa
 ## platform
 本实验运行在云GPU平台[Featurize](https://featurize.cn)上运行，使用显卡4090(3090应该也可以)
 
+Featurize没用过？[教学](./docs/featurize.md)
+
 点进work文件夹，点左上角的加号新建一个terminal
+
+// （这里因为我的work文件夹里有东西了，就新建了一个work2文件夹做示范，正常用work文件夹就OK了）
+
+<img src="./imgs/ups/createTerminal.png" />
 
 ## git clone
 ```sh
