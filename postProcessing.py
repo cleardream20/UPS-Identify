@@ -7,6 +7,7 @@ from osgeo import gdal, ogr, osr
 import glob
 from PIL import Image
 from tqdm import tqdm
+import shutil
 
 from mmseg.apis import init_model, inference_model, show_result_pyplot
 
@@ -82,7 +83,7 @@ def squares_all_in_one(input_tif_path, config_file, checkpoint_file, output_dir,
     # 删除patches文件夹（如果存在）
     if os.path.exists(patch_dir):
         print(f"\n删除旧的patches文件夹: {patch_dir}")
-        import shutil
+        # import shutil
         shutil.rmtree(patch_dir)
 
     # 删除pred_patches文件夹（如果存在）
@@ -416,22 +417,32 @@ def coordinate_mapping_to_shp(predicted_tif_path, output_shp_path):
         predicted_tif_path: 已包含正确坐标的预测tiff路径
         output_shp_path: 输出shp路径
     """
-    # 临时文件路径
-    temp_shp_path = output_shp_path.replace('.shp', '_temp.shp')
-
     # 1. 打开已地理参考的预测TIFF
     src_ds = gdal.Open(predicted_tif_path)
     if src_ds is None:
         raise RuntimeError(f"无法打开预测TIFF文件: {predicted_tif_path}")
 
-    # 2. 直接读取坐标系统（不再需要reference_tif_path）
+    # 2. 直接读取坐标系统
     crs_wkt = src_ds.GetProjection()
     band = src_ds.GetRasterBand(1)
     arr = band.ReadAsArray()
 
     print(f"输入TIFF像素统计: 有效像素={(arr > 0).sum()}/{arr.size}")
 
-    # 3. 多边形化（直接使用原坐标）
+    # 3. 创建掩膜：非0像素作为掩膜
+    # 创建一个临时内存栅格作为掩膜
+    mask_array = (arr > 0).astype(np.uint8)  # 有效像素为1，背景为0
+    
+    # 创建内存中的掩膜栅格
+    mem_driver = gdal.GetDriverByName('MEM')
+    mask_ds = mem_driver.Create('', src_ds.RasterXSize, src_ds.RasterYSize, 1, gdal.GDT_Byte)
+    mask_ds.SetProjection(crs_wkt)
+    mask_ds.SetGeoTransform(src_ds.GetGeoTransform())
+    mask_band = mask_ds.GetRasterBand(1)
+    mask_band.WriteArray(mask_array)
+    mask_band.FlushCache()
+
+    # 4. 多边形化（直接使用原坐标，并通过掩膜过滤背景）
     driver = ogr.GetDriverByName("ESRI Shapefile")
 
     # 清理旧文件
@@ -445,19 +456,26 @@ def coordinate_mapping_to_shp(predicted_tif_path, output_shp_path):
     out_layer = out_ds.CreateLayer("squares", srs=osr.SpatialReference(crs_wkt))
     out_layer.CreateField(ogr.FieldDefn("id", ogr.OFTInteger))
 
-    # 执行多边形化
-    gdal.Polygonize(band, None, out_layer, 0, [], callback=None)
+    # 执行多边形化，使用掩膜过滤背景（值为0的像素）
+    gdal.Polygonize(band, mask_band, out_layer, 0, [], callback=None)
 
-    # 5. 释放资源
+    # 5. 统计有效要素数量
+    out_layer.ResetReading()
+    feature_count = out_layer.GetFeatureCount()
+    
+    # 6. 释放资源
+    mask_ds = None
     out_ds = None
     src_ds = None
 
     print(f"生成Shapefile成功: {output_shp_path}")
+    print(f"有效要素数量: {feature_count} (已自动过滤背景像素)")
 
 
 input_tif = "./mmsegmentation/input_tif/建邺区-19级.tif"
 output_dir = "./mmsegmentation/output_shp" # 输出结果和部分中间结果均在此文件夹中
 config_file = './mmsegmentation/MyConfigs/UpsDataset_KNet.py'
-checkpoint_file = './mmsegmentation/work_dirs/UpsDataset-KNet/iter_12500.pth'
+# checkpoint_file = './mmsegmentation/work_dirs/UpsDataset-KNet/iter_12500.pth'
+checkpoint_file = './mmsegmentation/checkpoint/pretrained/iter_7500.pth'
 
 squares_all_in_one(input_tif, config_file, checkpoint_file, output_dir)
