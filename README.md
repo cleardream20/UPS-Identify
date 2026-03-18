@@ -39,6 +39,11 @@ bash all_in_one.sh
 
 <img src="./imgs/ups/setup2.png" />
 
+如果终端命令行前面的环境显示仍为"(base)"，运行以下命令：
+```bash
+conda activate ups
+```
+
 ### Train / Predict / PostProcessing
 将训练/预测/后处理操作都集成在run.sh文件里
 
