@@ -162,4 +162,3 @@ bash run.sh
 2. 修改优化器optim_wrapper & optimizer部分，修改weight_decay: 0.0005->0.0001 & lr: 0.01->0.001
 
 <img src="./imgs/ups/fine_tuning_2.png" />
-1. 
