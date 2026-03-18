@@ -147,3 +147,19 @@ bash run.sh
 
 图像预测结果保存在`./mmsegmentation/outputs`文件夹中
 <img src="./imgs/ups/pred_res.png" />
+
+### Fine-tuning
+针对不同类型的城市对模型进行迁移训练与微调
+
+对目标城市训练区域的遥感影像进行类似的图像切片和标注处理，手动划分训练集与测试集，将训练集放入原训练集文件夹中（例如./mmsegmentation/UPS_Semantic_Seg_Mask/img_dir/train & ./mmsegmentation/UPS_Semantic_Seg_Mask/ann_dir/train），将测试集放入原测试集文件夹中（同理，xxx/img_dir/val & xxx/ann_dir/val）
+<img src="./imgs/ups/fine_tuning_data.png" />
+
+修改训练配置文件，例如./mmsegmentation/MyConfigs/UpsDataset_KNet.py
+1. 修改预训练加载load_from部分，改为之前训练好的模型配置文件的路径（相对路径）
+
+<img src="./imgs/ups/fine_tuning_1.png" />
+
+2. 修改优化器optim_wrapper & optimizer部分，修改weight_decay: 0.0005->0.0001 & lr: 0.01->0.001
+
+<img src="./imgs/ups/fine_tuning_2.png" />
+1. 
